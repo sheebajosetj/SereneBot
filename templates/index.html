@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SereneBot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="chat-wrapper">
+        <div class="chat-name">🌿 <span>SereneBot</span></div>
+        <div class="chat-container">
+            <div class="chat-header">
+                <h1>Welcome to <span>SereneBot</span></h1>
+                <p>Your mental wellness companion</p>
+            </div>
+            <div class="chat-box" id="chat-box">
+                {% for message in messages %}
+                    <div class="{{ message.sender }}">
+                        <span>{{ message.text }}</span>
+                    </div>
+                {% endfor %}
+            </div>
+            <form method="POST" autocomplete="off">
+                <input type="text" name="message" id="user-input" value="" placeholder="Ask me anything..." />
+                <button type="submit">Send</button>
+            </form>
+              
+            <p class="disclaimer">
+                💡 This chatbot provides general emotional support.<br>
+                For urgent help, consult a mental health professional.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
